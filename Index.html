@@ -1,0 +1,881 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Valentine's Day 💖</title>
+
+ 
+
+  <!-- Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+ 
+
+  <style>
+
+    :root{
+
+      --bg: #0f0f14;
+
+      --card: #1b1b26;
+
+      --pink: #ff5fa2;
+
+      --rose: #ff4974;
+
+      --accent: #ffd2e4;
+
+      --text: #f6f7fb;
+
+      --muted: #b8bbcf;
+
+      --gold: #ffd166;
+
+    }
+
+    * { box-sizing: border-box }
+
+    html, body { height: 100% }
+
+    body{
+
+      margin: 0;
+
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+
+      color: var(--text);
+
+      background: radial-gradient(1200px 600px at 70% -10%, #2a2033 0%, var(--bg) 55%) fixed;
+
+      overflow-x: hidden;
+
+    }
+
+ 
+
+    /* Floating hearts in the background */
+
+    .hearts {
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      z-index: 0;
+
+    }
+
+    .heart {
+
+      position: absolute;
+
+      width: 18px; height: 18px;
+
+      background: linear-gradient(135deg, var(--rose), var(--pink));
+
+      transform: rotate(45deg);
+
+      opacity: .12;
+
+      border-radius: 4px;
+
+      filter: drop-shadow(0 2px 6px rgba(255,90,150,.35));
+
+      animation: floatUp var(--dur) linear infinite;
+
+    }
+
+    .heart::before, .heart::after{
+
+      content: "";
+
+      position: absolute;
+
+      width: 18px; height: 18px;
+
+      background: inherit;
+
+      border-radius: 50%;
+
+    }
+
+    .heart::before{ left: -9px; }
+
+    .heart::after{ top: -9px; }
+
+ 
+
+    @keyframes floatUp {
+
+      0%   { transform: translateY(0) rotate(45deg); }
+
+      100% { transform: translateY(-120vh) rotate(45deg); }
+
+    }
+
+ 
+
+    /* Layout */
+
+    .wrap{
+
+      position: relative;
+
+      z-index: 1;
+
+      display: grid;
+
+      gap: 2rem;
+
+      padding: 2rem 1.25rem 4rem;
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+    }
+
+ 
+
+    header.hero{
+
+      text-align: center;
+
+      padding: 2rem 1rem 1rem;
+
+    }
+
+    .sub{ color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; font-size: .85rem }
+
+    h1{
+
+      font-family: "Great Vibes", cursive;
+
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+
+      margin: .25rem 0 .75rem;
+
+      color: var(--accent);
+
+      text-shadow: 0 4px 18px rgba(255,95,162,.25);
+
+    }
+
+    .chip{
+
+      display: inline-flex; align-items: center; gap: .5rem;
+
+      background: linear-gradient(180deg, #2a2333, #1a1824);
+
+      border: 1px solid #33294b;
+
+      color: var(--text);
+
+      padding: .5rem .85rem;
+
+      border-radius: 999px;
+
+      font-weight: 600;
+
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 8px 30px rgba(0,0,0,.35);
+
+    }
+
+ 
+
+    /* Cards */
+
+    .card{
+
+      background: linear-gradient(180deg, #1c1a24, #171621);
+
+      border: 1px solid #2a2640;
+
+      border-radius: 20px;
+
+      box-shadow: 0 12px 35px rgba(0,0,0,.45);
+
+      padding: 1.25rem;
+
+    }
+
+    .card h2{
+
+      font-size: 1.2rem; margin: 0 0 .5rem;
+
+      color: var(--accent);
+
+    }
+
+    .muted{ color: var(--muted) }
+
+ 
+
+    /* Love letter */
+
+    .letter{
+
+      padding: 1.25rem;
+
+      background: #15141d;
+
+      border: 1px dashed #3a3253;
+
+      border-radius: 16px;
+
+      line-height: 1.8;
+
+    }
+
+    .signature{
+
+      margin-top: 1rem; font-family: "Great Vibes", cursive; font-size: 2rem; color: var(--gold);
+
+    }
+
+ 
+
+    /* Gallery */
+
+    .gallery{
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: .75rem;
+
+    }
+
+    @media (min-width: 768px){
+
+      .gallery{ grid-template-columns: repeat(3, 1fr); }
+
+    }
+
+    .pic{
+
+      position: relative; overflow: hidden;
+
+      border-radius: 14px;
+
+      aspect-ratio: 1/2;
+
+      border: 1px solid #2d2744;
+
+    }
+
+    .pic img{
+
+      width: 100%; height: 100%; object-fit: cover; display: block;
+
+      transform: scale(1.02);
+
+      transition: transform .6s ease, filter .6s ease;
+
+      filter: saturate(1.05) contrast(1.03);
+
+    }
+
+    .pic:hover img{ transform: scale(1.07); filter: saturate(1.2) }
+
+ 
+
+   
+
+    /* Cards */
+
+    .grid{
+
+      display: grid;
+
+      gap: 1rem;
+
+    }
+
+    @media (min-width: 768px){
+
+      .grid{ grid-template-columns: 1.15fr .85fr }
+
+    }
+
+    .card{
+
+      background: linear-gradient(180deg, #1b1a25, #161521);
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      box-shadow: 0 12px 35px rgba(0,0,0,.45);
+
+      padding: 1.1rem;
+
+    }
+
+    .card h2{
+
+      margin: 0 0 .35rem;
+
+      color: var(--accent);
+
+      font-size: 1.15rem;
+
+    }
+
+    .muted{ color: var(--muted) }
+
+   
+
+    /* 3D flip love card */
+
+    .flipwrap{ perspective: 1200px }
+
+    .flip{
+
+      position: relative; height: 260px;
+
+      transform-style: preserve-3d;
+
+      transition: transform .9s cubic-bezier(.2,.8,.2,1);
+
+      border-radius: 16px; overflow: hidden;
+
+    }
+
+    .flip:hover{ transform: rotateY(180deg) }
+
+    .side{
+
+      position: absolute; inset: 0;
+
+      display: grid; place-items: center;
+
+      padding: 1rem; text-align: center;
+
+      backface-visibility: hidden;
+
+    }
+
+    .front{
+
+      background: radial-gradient(500px 260px at 50% 0%, rgba(255,95,162,.14), transparent 70%),
+
+                  linear-gradient(180deg, #221b2b, #171621);
+
+      border: 1px solid #2d2744;
+
+    }
+
+    .back{
+
+      transform: rotateY(180deg);
+
+      background: radial-gradient(500px 260px at 50% 0%, rgba(108,99,255,.18), transparent 70%),
+
+                  linear-gradient(180deg, #211d2f, #171728);
+
+      border: 1px solid #2b2c4b;
+
+    }
+
+    .quote{
+
+      max-width: 560px; line-height: 1.8; font-size: 1rem;
+
+    }
+
+    .signature{
+
+      margin-top: .6rem; font-family: "Great Vibes", cursive; font-size: 2rem; color: var(--gold);
+
+    }
+
+ 
+
+    /* Countdown */
+
+    .count{
+
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem;
+
+      margin-top: .75rem;
+
+    }
+
+    .count .box{
+
+      background: #15141d; border: 1px solid #33294b; border-radius: 12px;
+
+      padding: .75rem; text-align: center;
+
+    }
+
+    .num{ font-size: 1.6rem; font-weight: 700; color: var(--accent) }
+
+    .lbl{ font-size: .8rem; color: var(--muted) }
+
+ 
+
+    /* Secret message button */
+
+    .btn{
+
+      display: inline-flex; align-items: center; gap: .6rem;
+
+      background: linear-gradient(180deg, #ff7aa6, #ff4d88);
+
+      color: #1a0f15; font-weight: 700;
+
+      border: none; border-radius: 999px;
+
+      padding: .8rem 1.1rem; cursor: pointer;
+
+      box-shadow: 0 8px 24px rgba(255,77,136,.35), inset 0 1px 0 rgba(255,255,255,.4);
+
+      transition: transform .08s ease;
+
+    }
+
+    .btn:active{ transform: translateY(1px) }
+
+ 
+
+    .secret{
+
+      margin-top: 1rem;
+
+      background: #15141d; border: 1px solid #33294b; border-radius: 12px;
+
+      padding: 1rem; display: none;
+
+    }
+
+ 
+
+    /* Footer */
+
+    footer{
+
+      text-align: center; color: var(--muted);
+
+      margin-top: 1rem;
+
+    }
+
+ 
+
+    /* Simple fade-in */
+
+    .fade-in{ animation: fade .8s ease both }
+
+    @keyframes fade{
+
+      from{ opacity: 0; transform: translateY(6px) }
+
+      to{ opacity: 1; transform: translateY(0) }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+ 
+
+  <!-- Floating hearts generated via JS -->
+
+  <div class="hearts" aria-hidden="true"></div>
+
+ 
+
+  <main class="wrap">
+
+    <header class="hero fade-in">
+
+      <div class="sub">February 14</div>
+
+      <h1>Happy Valentine's Day, <span id="recipient">My Love</span> 💖</h1>
+
+      <div class="chip">You + Me = Forever</div>
+
+    </header>
+
+ 
+
+    <!-- Love Letter Card -->
+
+    <section class="card fade-in" style="animation-delay:.05s">
+
+      <h2>Love Letter</h2>
+
+      <p class="muted">A little note from the heart.</p>
+
+      <div class="letter" id="letter">
+
+        Dear <span id="name-inline">My Love</span>,<br><br>
+
+        From the moment we met, my world became brighter. Thank you for your kindness, your laughter,
+
+        and the way you make ordinary days feel magical. I’m grateful for every memory we’ve created,
+
+        and excited for all the adventures ahead—hand in hand. 💫<br><br>
+
+        With all my love,<br>
+
+        <span class="signature">— Gowtham</span>
+
+      </div>
+
+    </section>
+
+ 
+
+   
+
+    <section class="grid">
+
+      <!-- Left: flip love card -->
+
+      <div class="card flipwrap fade">
+
+        <h2>Love Card</h2>
+
+        <div class="flip">
+
+          <div class="side front">
+
+            <div class="quote">
+
+              “In a sky full of stars, you’re my favorite sparkle.” ✨
+
+              <div class="signature">— Gowtham</div>
+
+            </div>
+
+          </div>
+
+          <div class="side back">
+
+            <div class="quote">
+
+              Every ordinary day with you becomes a memory I want to replay.
+
+              Thank you for your laughter, your kindness, and your magic. 💫
+
+              <div class="signature">Forever yours.</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="muted" style="margin-top:.6rem">Hover (or long-press on mobile) to flip.</p>
+
+      </div>
+
+ 
+
+    <!-- Countdown Card -->
+
+    <section class="card fade-in" style="animation-delay:.1s">
+
+      <h2>Countdown to Our Next Valentine’s Day</h2>
+
+      <p class="muted">Can't wait! ⏳</p>
+
+      <div class="count" id="countdown">
+
+        <div class="box"><div class="num" id="d">0</div><div class="lbl">Days</div></div>
+
+        <div class="box"><div class="num" id="h">0</div><div class="lbl">Hours</div></div>
+
+        <div class="box"><div class="num" id="m">0</div><div class="lbl">Minutes</div></div>
+
+        <div class="box"><div class="num" id="s">0</div><div class="lbl">Seconds</div></div>
+
+      </div>
+
+    </section>
+
+ 
+
+    <!-- Gallery Card -->
+
+    <section class="card fade-in" style="animation-delay:.15s">
+
+      <h2>Our Moments</h2>
+
+      <p class="muted">Add your favorite photos below.</p>
+
+      <div class="gallery">
+
+        <!-- Replace src values with your images -->
+
+        <figure class="pic"><img src="src/1.jpg" alt="Us walking together"></figure>
+
+        <figure class="pic"><img src="/src/2.jpg" alt="Coffee date"></figure>
+
+        <figure class="pic"><img src="/src/3.jpg" alt="Sunset moment"></figure>
+
+        <figure class="pic"><img src="/src/4.jpg" alt="Laughing together"></figure>
+
+        <figure class="pic"><img src="/src/5.jpg" alt="City lights"></figure>
+
+        <figure class="pic"><img src="/src/6.jpg" alt="Beach day"></figure>
+
+      </div>
+
+    </section>
+
+ 
+
+    <!-- Secret Message Card -->
+
+    <section class="card fade-in" style="animation-delay:.2s">
+
+      <h2>A Little Surprise</h2>
+
+      <p class="muted">Tap the button to reveal a message.</p>
+
+      <button class="btn" id="revealBtn">💌 Reveal Secret</button>
+
+      <div class="secret" id="secret">
+
+        You are my favorite person—today, tomorrow, and always. ❤️
+
+      </div>
+
+    </section>
+
+ 
+
+    <footer>
+
+      Made with love in Bangalore • © <span id="year"></span> 💘
+
+    </footer>
+
+  </main>
+
+ 
+
+  <script>
+
+    // Personalize here
+
+    const recipientName = "Divi ma";           // 👉 Change to your partner's name
+
+    const authorName = "Gowtham";            // 👉 Your name
+
+    const nextDateISO = "2027-02-14T19:00:00"; // 👉 Next date/time (local)
+
+ 
+
+    // Update names in DOM
+
+    document.getElementById("recipient").textContent = recipientName;
+
+    document.getElementById("name-inline").textContent = recipientName;
+
+    document.querySelector(".signature").textContent = `— ${authorName}`;
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+ 
+
+    // Generate floating hearts
+
+    const heartsEl = document.querySelector(".hearts");
+
+    const HEARTS = 28;
+
+    for (let i = 0; i < HEARTS; i++){
+
+      const h = document.createElement("div");
+
+      h.className = "heart";
+
+      const size = 14 + Math.random()*18;
+
+      h.style.width = size + "px";
+
+      h.style.height = size + "px";
+
+      h.style.left = Math.random()*100 + "vw";
+
+      h.style.top = 80 + Math.random()*40 + "vh";       // start near bottom
+
+      h.style.opacity = (0.06 + Math.random()*0.12).toFixed(2);
+
+      h.style.animationDelay = Math.random()*6 + "s";
+
+      h.style.setProperty("--dur", (9 + Math.random()*10) + "s");
+
+      heartsEl.appendChild(h);
+
+    }
+
+ 
+
+    // Countdown logic
+
+    const tgt = new Date(nextDateISO).getTime();
+
+    const dEl = document.getElementById("d");
+
+    const hEl = document.getElementById("h");
+
+    const mEl = document.getElementById("m");
+
+    const sEl = document.getElementById("s");
+
+ 
+
+    function updateCountdown(){
+
+      const now = Date.now();
+
+      let diff = Math.max(0, tgt - now);
+
+      const d = Math.floor(diff / (1000*60*60*24));
+
+      diff -= d * (1000*60*60*24);
+
+      const h = Math.floor(diff / (1000*60*60));
+
+      diff -= h * (1000*60*60);
+
+      const m = Math.floor(diff / (1000*60));
+
+      diff -= m * (1000*60);
+
+      const s = Math.floor(diff / 1000);
+
+ 
+
+      dEl.textContent = d;
+
+      hEl.textContent = h.toString().padStart(2, "0");
+
+      mEl.textContent = m.toString().padStart(2, "0");
+
+      sEl.textContent = s.toString().padStart(2, "0");
+
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+ 
+
+    // Secret message reveal + confetti
+
+    const secret = document.getElementById("secret");
+
+    const btn = document.getElementById("revealBtn");
+
+    btn.addEventListener("click", () => {
+
+      secret.style.display = "block";
+
+      popConfetti();
+
+    });
+
+ 
+
+    // Minimal confetti using DOM
+
+    function popConfetti(){
+
+      const colors = ["#ff4d88", "#ffd166", "#8ef6ff", "#9dff90", "#ff9df2"];
+
+      const count = 120;
+
+      for (let i = 0; i < count; i++){
+
+        const c = document.createElement("span");
+
+        c.style.position = "fixed";
+
+        c.style.left = (Math.random()*100) + "vw";
+
+        c.style.top = "-10px";
+
+        c.style.width = c.style.height = (6 + Math.random()*6) + "px";
+
+        c.style.background = colors[Math.floor(Math.random()*colors.length)];
+
+        c.style.borderRadius = Math.random() > .5 ? "2px" : "50%";
+
+        c.style.zIndex = 99;
+
+        c.style.opacity = .9;
+
+        const rotate = Math.random()*360;
+
+        c.style.transform = `rotate(${rotate}deg)`;
+
+        c.style.boxShadow = "0 2px 8px rgba(0,0,0,.25)";
+
+        document.body.appendChild(c);
+
+ 
+
+        const duration = 1500 + Math.random()*1800;
+
+        const endY = window.innerHeight + 40;
+
+        const endX = (Math.random()*2 - 1) * 80; // drift
+
+        const start = performance.now();
+
+ 
+
+        function anim(t){
+
+          const p = Math.min(1, (t - start) / duration);
+
+          const y = -10 + p * endY;
+
+          const x = parseFloat(c.style.left) / (window.innerWidth/100) + p * endX;
+
+          c.style.top = y + "px";
+
+          c.style.left = x + "vw";
+
+          c.style.transform = `rotate(${rotate + p*360}deg)`;
+
+          if (p < 1) requestAnimationFrame(anim);
+
+          else c.remove();
+
+        }
+
+        requestAnimationFrame(anim);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
